@@ -6,6 +6,7 @@ WORKDIR /src/jx-cdevents-adapter
 
 # Force the go compiler to use modules
 ENV GO111MODULE=on
+ENV CGO_ENABLED=0
 ENV BUILDFLAGS=""
 ENV GOPROXY=https://proxy.golang.org
 
