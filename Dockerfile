@@ -31,16 +31,10 @@ RUN GOOS=linux go build -ldflags '-linkmode=external' $BUILDFLAGS -v -o jx-cdeve
 
 RUN go build -o /jx-cdevents-adapter
 
-FROM alpine:latest
+FROM cgr.dev/chainguard/wolfi-base:latest
 
-RUN    apk update && apk upgrade \
-	&& apk add ca-certificates libc6-compat \
-	&& update-ca-certificates \
-	&& rm -rf /var/cache/apk/*
-
-COPY --from=build /src/jx-cdevents-adapter/jx-cdevents-adapter /jx-cdevents-adapter
-RUN echo ls
-EXPOSE 80
+COPY --from=build /jx-cdevents-adapter /jx-cdevents-adapter
+	EXPOSE 80
 
 # required for external tools to detect this as a go binary
 ENV GOTRACEBACK=all
