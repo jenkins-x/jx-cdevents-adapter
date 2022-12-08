@@ -77,3 +77,7 @@ func main() {
     }
 }
 ```
+
+## Contributors
+
+A big thanks to all [maintainers](CODEOWNERS) and [contributors](https://github.com/jenkins-x/jx-cdevents-adapter/graphs/contributors)!

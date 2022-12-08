@@ -1,0 +1,22 @@
+apiVersion: v2
+name: jx-cdevents-adapter
+description: A Helm chart for the Jenkins CDEvents Adapter
+
+type: application
+
+version: 0.0.1
+appVersion: "0.0.1"
+
+home: "https://jenkins-x.io"
+icon: "https://repository-images.githubusercontent.com/116400734/47191280-fcbf-11ea-8518-54ddad1b1a7d"
+sources:
+  - "https://github.com/jenkins-x/jx-cdevents-adapter"
+annotations:
+  artifacthub.io/license: "Apache-2.0"
+  artifacthub.io/links: |
+    - name: support
+      url: https://github.com/jenkins-x/jx-cdevents-adapter/issues
+keywords:
+  - cloud-native
+  - cd
+  - jenkins-x
