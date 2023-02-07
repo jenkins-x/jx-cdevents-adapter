@@ -36,6 +36,15 @@ FROM cgr.dev/chainguard/wolfi-base:latest
 COPY --from=build /jx-cdevents-adapter /jx-cdevents-adapter
 	EXPOSE 80
 
+# Add a new user
+RUN adduser -D myuser
+
+# Change the ownership of the binary to the new user
+RUN chown myuser:myuser /jx-cdevents-adapter
+
+# Run the binary as the new user
+USER myuser
+
 # required for external tools to detect this as a go binary
 ENV GOTRACEBACK=all
 
