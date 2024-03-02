@@ -14,7 +14,7 @@ func handleRequests() {
 
 	port, found := os.LookupEnv("ADAPTER_PORT")
 	if !found || port == "" {
-		port = "80"
+		port = "8080"
 	}
 
 	router := handlers.Router()

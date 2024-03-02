@@ -3,17 +3,18 @@ package handlers
 import (
 	"sync/atomic"
 
-	"github.com/gorilla/mux"
+	"github.com/go-chi/chi/v5"
 )
 
 // Router register necessary routes and returns an instance of a router.
-func Router() *mux.Router {
-	r := mux.NewRouter()
+func Router() *chi.Mux {
+
+	r := chi.NewRouter()
 	isReady := &atomic.Value{}
 	isReady.Store(true)
 
-	r.HandleFunc("/", home).Methods("POST")
-	r.HandleFunc("/healthz", healthz)
-	r.HandleFunc("/readyz", readyz(isReady))
+	r.Post("/", home)
+	r.Get("/healthz", healthz)
+	r.Get("/readyz", readyz(isReady))
 	return r
 }
